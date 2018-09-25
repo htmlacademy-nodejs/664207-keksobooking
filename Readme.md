@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Vladimir Rurik](https://up.htmlacademy.ru/nodejs/2/user/664207).
-* Наставник: `Неизвестно`.
+* Наставник: [Даниил Оношко](https://htmlacademy.ru/profile/id154426).
 
 ---
 
