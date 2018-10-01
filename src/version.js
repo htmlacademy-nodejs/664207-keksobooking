@@ -1,4 +1,3 @@
-const colors = require(`colors/safe`);
 const packageInfo = require(`../package.json`);
 
 module.exports = {
@@ -10,8 +9,8 @@ module.exports = {
 
     process.stdout.write(`v`);
     versionParts.map((versionPart, index) => {
-      const coloredMethod = colors[versionColors[index]].bind(colors);
-      process.stdout.write(coloredMethod(versionPart));
+      const coloredPart = versionPart[versionColors[index]];
+      process.stdout.write(coloredPart);
       if (index < versionParts.length - 1) {
         process.stdout.write(`.`);
       }
