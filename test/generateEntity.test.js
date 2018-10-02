@@ -1,11 +1,11 @@
 const assert = require(`assert`);
 const {
-  room,
-  coord,
-  price,
-  types,
-  times,
-  photoUrls
+  Room,
+  Coord,
+  Price,
+  Types,
+  Times,
+  PhotoUrls
 } = require(`../src/constants`);
 const {generateEntity, generateLocation} = require(`../src/generateEntity`);
 
@@ -52,19 +52,19 @@ describe(`Generate entity`, () => {
 
     it(`Should generate price`, () => {
       assert.ok(
-          generatedData.offer.price >= price.MIN &&
-          generatedData.offer.price <= price.MAX
+          generatedData.offer.price >= Price.MIN &&
+          generatedData.offer.price <= Price.MAX
       );
     });
 
     it(`Should generate type`, () => {
-      assert.ok(types.includes(generatedData.offer.type));
+      assert.ok(Types.includes(generatedData.offer.type));
     });
 
     it(`Should generate count of rooms`, () => {
       assert.ok(
-          generatedData.offer.rooms >= room.MIN_ROOM_COUNT &&
-          generatedData.offer.rooms <= room.MAX_ROOM_COUNT
+          generatedData.offer.rooms >= Room.MIN_ROOM_COUNT &&
+          generatedData.offer.rooms <= Room.MAX_ROOM_COUNT
       );
     });
 
@@ -73,7 +73,7 @@ describe(`Generate entity`, () => {
     });
 
     it(`Should generate time`, () => {
-      assert.ok(times.includes(generatedData.offer.checkin));
+      assert.ok(Times.includes(generatedData.offer.checkin));
       assert.ok(generatedData.offer.checkout === generatedData.offer.checkin);
     });
 
@@ -88,15 +88,15 @@ describe(`Generate entity`, () => {
     });
 
     it(`Should generate photos urls`, () => {
-      assert.ok(generatedData.offer.photos.length === photoUrls.length);
+      assert.ok(generatedData.offer.photos.length === PhotoUrls.length);
     });
 
     it(`Should generate location`, () => {
       const locationX = generatedData.location.x;
       const locationY = generatedData.location.y;
 
-      assert.ok(locationX > coord.X_MIN && locationX < coord.X_MAX);
-      assert.ok(locationY > coord.Y_MIN && locationY < coord.Y_MAX);
+      assert.ok(locationX > Coord.X_MIN && locationX < Coord.X_MAX);
+      assert.ok(locationY > Coord.Y_MIN && locationY < Coord.Y_MAX);
     });
   });
 });
@@ -108,7 +108,7 @@ describe(`Generate location`, () => {
       const coords = generateLocation();
 
       assert(
-          coords.x >= coord.X_MIN && coords.x <= coord.X_MAX,
+          coords.x >= Coord.X_MIN && coords.x <= Coord.X_MAX,
           `Not passed on ${i} test`
       );
     }
