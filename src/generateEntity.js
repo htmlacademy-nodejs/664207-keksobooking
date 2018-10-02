@@ -1,12 +1,12 @@
 const {
-  coord,
-  price,
-  types,
-  room,
-  guests,
-  times,
-  features,
-  photoUrls
+  Coord,
+  Price,
+  Types,
+  Room,
+  Guests,
+  Times,
+  Features,
+  PhotoUrls
 } = require(`./constants`);
 const {getRandomNumber, getRandomUniqArray} = require(`./helpers`);
 
@@ -23,8 +23,8 @@ const titles = [
 
 const generateLocation = () => {
   return {
-    x: getRandomNumber(coord.X_MIN, coord.X_MAX),
-    y: getRandomNumber(coord.Y_MIN, coord.Y_MAX)
+    x: getRandomNumber(Coord.X_MIN, Coord.X_MAX),
+    y: getRandomNumber(Coord.Y_MIN, Coord.Y_MAX)
   };
 };
 
@@ -32,7 +32,7 @@ module.exports.generateLocation = generateLocation;
 
 module.exports.generateEntity = (i) => {
   const coords = generateLocation();
-  const time = times[getRandomNumber(0, times.length - 1)];
+  const time = Times[getRandomNumber(0, Times.length - 1)];
 
   return {
     author: {
@@ -41,18 +41,18 @@ module.exports.generateEntity = (i) => {
     offer: {
       title: titles[i],
       address: `${coords.x}, ${coords.y}`,
-      price: getRandomNumber(price.MIN, price.MAX),
-      type: types[getRandomNumber(0, types.length - 1)],
-      rooms: getRandomNumber(room.MIN_ROOM_COUNT, room.MAX_ROOM_COUNT),
-      guests: getRandomNumber(guests.MIN, guests.MAX),
+      price: getRandomNumber(Price.MIN, Price.MAX),
+      type: Types[getRandomNumber(0, Types.length - 1)],
+      rooms: getRandomNumber(Room.MIN_ROOM_COUNT, Room.MAX_ROOM_COUNT),
+      guests: getRandomNumber(Guests.MIN, Guests.MAX),
       checkin: time,
       checkout: time,
       features: getRandomUniqArray(
-          features,
-          getRandomNumber(0, features.length - 1)
+          Features,
+          getRandomNumber(0, Features.length - 1)
       ),
       description: ``,
-      photos: [...photoUrls.sort(() => getRandomNumber(-1, 1))]
+      photos: [...PhotoUrls.sort(() => getRandomNumber(-1, 1))]
     },
     location: coords
   };
