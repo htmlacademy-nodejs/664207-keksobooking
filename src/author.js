@@ -5,5 +5,6 @@ module.exports = {
   description: `Shows the author of the application`,
   execute() {
     console.log(packageInfo.author);
+    process.exit(0);
   }
 };
