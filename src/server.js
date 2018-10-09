@@ -72,13 +72,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(404, `Not Found`);
       res.end();
     }
-  })()
-      .catch((e) => {
-        res.writeHead(500, e.message, {
-          'content-type': `text/plain`
-        });
-        res.end(e.message);
-      });
+  })();
 });
 
 module.exports = {
