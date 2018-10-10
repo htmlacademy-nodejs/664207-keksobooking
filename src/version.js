@@ -15,5 +15,7 @@ module.exports = {
         process.stdout.write(`.`);
       }
     });
+
+    process.exit(0);
   }
 };
