@@ -1,5 +1,9 @@
-const {generateEntity} = require(`../generateEntity`);
+const validator = require(`../common/validation`);
+const {generateEntity} = require(`../generator/generateEntity`);
+const {getRandomName} = require(`../common/helpers`);
+
 const DEFAULT_DATA_LIMIT = 20;
+const DEFAULT_DATA_LENGTH = 20;
 const DEFAULT_SKIP_NUMBER = 0;
 
 const generateEntities = (length) => {
@@ -12,7 +16,7 @@ const generateEntities = (length) => {
   return data;
 };
 
-const entities = generateEntities(20);
+const entities = generateEntities(DEFAULT_DATA_LENGTH);
 
 module.exports.all = (req, res) => {
   const limit = req.query.limit || DEFAULT_DATA_LIMIT;
@@ -39,7 +43,7 @@ module.exports.avatar = (req, res) => {
   const entity = entities.find((it) => it.date === date);
 
   if (!entity) {
-    res.send(`This date offer does not exist`);
+    res.send(`An offer of this date does not exist`);
     return;
   }
   const avatar = entity.author ? entity.author.avatar : null;
@@ -47,12 +51,26 @@ module.exports.avatar = (req, res) => {
   if (avatar) {
     res.send(avatar);
   } else {
-    res.send(`This date offer does not exist`);
+    res.send(`An offer of this date does not exist`);
   }
 };
 
 module.exports.save = (req, res) => {
   const {
+    title,
+    address,
+    description,
+    price,
+    type,
+    rooms,
+    guests,
+    checkin,
+    checkout,
+    features
+  } = req.body;
+
+  const name = req.body.name || getRandomName();
+  const errors = validator({
     name,
     title,
     address,
@@ -63,7 +81,14 @@ module.exports.save = (req, res) => {
     guests,
     checkin,
     checkout,
-    features} = req.body;
+    features
+  });
+
+  if (errors.length) {
+    res.status(400);
+    res.json(errors);
+    return;
+  }
 
   res.json({
     name,
