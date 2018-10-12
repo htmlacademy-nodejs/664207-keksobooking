@@ -3,13 +3,13 @@ const DEFAULT_DATA_LIMIT = 20;
 const DEFAULT_SKIP_NUMBER = 0;
 
 const generateEntities = (length) => {
-  const data = [];
+  const entities = [];
 
   for (let i = 0; i < length; i++) {
-    data.push(generateEntity(i));
+    entities.push(generateEntity(i));
   }
 
-  return data;
+  return entities;
 };
 
 const entities = generateEntities(20);
@@ -63,7 +63,8 @@ module.exports.save = (req, res) => {
     guests,
     checkin,
     checkout,
-    features} = req.body;
+    features
+  } = req.body;
 
   res.json({
     name,
