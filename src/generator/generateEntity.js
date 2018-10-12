@@ -7,8 +7,8 @@ const {
   Times,
   Features,
   PhotoUrls
-} = require(`./constants`);
-const {getRandomNumber, getRandomUniqArray} = require(`./helpers`);
+} = require(`../common/constants`);
+const {getRandomNumber, getRandomUniqArray} = require(`../common/helpers`);
 
 const titles = [
   `Большая уютная квартира`,
@@ -54,6 +54,7 @@ module.exports.generateEntity = (i) => {
       description: ``,
       photos: [...PhotoUrls.sort(() => getRandomNumber(-1, 1))]
     },
-    location: coords
+    location: coords,
+    date: Date.now()
   };
 };
