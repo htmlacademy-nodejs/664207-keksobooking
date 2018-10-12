@@ -8,7 +8,10 @@ const {
   Features,
   PhotoUrls
 } = require(`../common/constants`);
-const {getRandomNumber, getRandomUniqArray} = require(`../common/helpers`);
+const {
+  getRandomNumber,
+  getRandomUniqArray
+} = require(`../common/helpers`);
 
 const titles = [
   `Большая уютная квартира`,
