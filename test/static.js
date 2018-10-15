@@ -1,5 +1,9 @@
+const express = require(`express`);
 const request = require(`supertest`);
-const app = require(`../src/server`).getServer();
+const mockOffersRouter = require(`./mock-offers-router`);
+const app = require(`express`)();
+app.use(express.static(`static`));
+app.use(`/api/offers`, mockOffersRouter);
 
 describe(`Static resources should be in response`, () => {
   it(`Index html file is expected`, () => {
