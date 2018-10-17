@@ -1,4 +1,11 @@
-const names = [`Keks`, `Pavel`, `Nikolay`, `Alex`, `Ulyana`, `Anastasyia`, `Julia`];
+const names = [
+  `Keks`,
+  `Pavel`,
+  `Nikolay`,
+  `Alex`,
+  `Ulyana`,
+  `Anastasyia`,
+  `Julia`];
 
 const getRandomNumber = (min, max) => {
   let rand = min + Math.random() * (max + 1 - min);

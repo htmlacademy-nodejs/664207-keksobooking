@@ -7,7 +7,10 @@ const {
   Times,
   PhotoUrls
 } = require(`../src/common/constants`);
-const {generateEntity, generateLocation} = require(`../src/generator/generateEntity`);
+const {
+  generateEntity,
+  generateLocation
+} = require(`../src/generator/generateEntity`);
 
 const anyIndex = 0;
 let generatedData;

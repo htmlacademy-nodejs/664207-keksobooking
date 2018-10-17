@@ -7,13 +7,13 @@ const DEFAULT_DATA_LENGTH = 20;
 const DEFAULT_SKIP_NUMBER = 0;
 
 const generateEntities = (length) => {
-  const data = [];
+  const entities = [];
 
   for (let i = 0; i < length; i++) {
-    data.push(generateEntity(i));
+    entities.push(generateEntity(i));
   }
 
-  return data;
+  return entities;
 };
 
 const entities = generateEntities(DEFAULT_DATA_LENGTH);
