@@ -1,8 +1,7 @@
 const util = require(`util`);
 const ValidationError = require(`./errors/validation-error`);
 
-const SUCCESS_CODE = 200;
-const BAD_DATA_CODE = 400;
+const status = require(`../common/config`);
 
 const renderErrorHtml = (errors) => {
   // language=HTML
@@ -42,8 +41,8 @@ ${util.inspect(form)}
 };
 
 const render = (req, res, data, success) => {
-  const badStatusCode = data.code ? data.code : BAD_DATA_CODE;
-  res.status(success ? SUCCESS_CODE : badStatusCode);
+  const badStatusCode = data.code ? data.code : status.BAD_REQUEST;
+  res.status(success ? status.OK : badStatusCode);
   switch (req.accepts([`json`, `html`])) {
     case `html`:
       res.set(`Content-Type`, `text/html`);

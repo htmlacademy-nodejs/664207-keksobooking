@@ -37,5 +37,46 @@ module.exports = {
     },
     types: [`flat`, `house`, `bungalo`, `palace`],
     HHMMFormat: /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/
-  }
+  },
+
+  Coord: {
+    X_MIN: 300,
+    X_MAX: 900,
+    Y_MIN: 150,
+    Y_MAX: 500
+  },
+
+  Price: {
+    MIN: 1000,
+    MAX: 1000000
+  },
+
+  Types: [`flat`, `palace`, `house`, `bungalo`],
+
+  Room: {
+    MIN_ROOM_COUNT: 0,
+    MAX_ROOM_COUNT: 5
+  },
+
+  Guests: {
+    MIN: 0,
+    MAX: 100
+  },
+
+  Times: [`12:00`, `13:00`, `14:00`],
+
+  Features: [
+    `wifi`,
+    `dishwasher`,
+    `parking`,
+    `washer`,
+    `elevator`,
+    `conditioner`
+  ],
+
+  PhotoUrls: [
+    `http://o0.github.io/assets/images/tokyo/hotel1.jpg`,
+    `http://o0.github.io/assets/images/tokyo/hotel2.jpg`,
+    `http://o0.github.io/assets/images/tokyo/hotel3.jpg`
+  ]
 };

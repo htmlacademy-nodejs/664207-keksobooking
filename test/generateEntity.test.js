@@ -6,7 +6,7 @@ const {
   Types,
   Times,
   PhotoUrls
-} = require(`../src/common/constants`);
+} = require(`../src/common/config`);
 const {
   generateEntity,
   generateLocation

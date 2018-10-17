@@ -7,7 +7,7 @@ const {
   Times,
   Features,
   PhotoUrls
-} = require(`../common/constants`);
+} = require(`../common/config`);
 const {
   getRandomNumber,
   getRandomUniqArray
