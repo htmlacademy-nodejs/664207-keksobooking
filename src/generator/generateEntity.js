@@ -7,7 +7,7 @@ const {
   Times,
   Features,
   PhotoUrls
-} = require(`../common/constants`);
+} = require(`../common/config`);
 const {
   getRandomNumber,
   getRandomUniqArray
@@ -34,8 +34,13 @@ const generateLocation = () => {
 module.exports.generateLocation = generateLocation;
 
 module.exports.generateEntity = (i) => {
+
   const coords = generateLocation();
   const time = Times[getRandomNumber(0, Times.length - 1)];
+
+  if (!i) {
+    i = 1;
+  }
 
   return {
     author: {
