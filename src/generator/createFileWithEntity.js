@@ -1,5 +1,6 @@
 const fs = require(`fs`);
 const readline = require(`readline`);
+const logger = require(`../common/logger`);
 const {generateEntity} = require(`./generateEntity`);
 
 const MAX_ELEMENTS_LENGTH = 100;
@@ -14,7 +15,7 @@ const greeting = () => {
   Хотите ли вы сгенерировать данные ? \n
   Please, answer yes/no \n
 `;
-  console.log(greetingMessage);
+  logger.log(greetingMessage);
 };
 
 let progress = {};
@@ -45,7 +46,7 @@ const writeFile = () => {
     }
 
     progress = {};
-    console.log(`File has been succesfully saved \n`);
+    logger.log(`File has been succesfully saved \n`);
     process.exit(0);
   });
 };
@@ -61,7 +62,7 @@ const createFile = (filename) => {
       return;
     }
 
-    console.log(
+    logger.log(
         `A file with such a name [${filename}] already exists. Would you like to overwrite the file? \n`
     );
   });
@@ -91,14 +92,14 @@ const isFileNameAllowed = (name) => {
 
 const progressStart = () => {
   progress.start = true;
-  console.log(`Пожалуйста, укажите кол-во объектов \n`);
+  logger.log(`Пожалуйста, укажите кол-во объектов \n`);
   return;
 };
 
 const generateDataForFile = (length) => {
   progress.data = generateData(length);
   progress.isFileCreatedModeAllowed = true;
-  console.log(`Укажите пожалуйста название нового файла \n`);
+  logger.log(`Укажите пожалуйста название нового файла \n`);
 };
 
 const runCreateFileProgress = (name) => {
@@ -136,11 +137,11 @@ rl
         return;
       }
 
-      console.log(`Something has gone wrong`);
+      logger.error(`Something has gone wrong`);
       progress.exit(1);
     })
     .on(`close`, () => {
-      console.log(`Have a nice day!`);
+      logger.log(`Have a nice day!`);
       process.exit(0);
     });
 
