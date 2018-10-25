@@ -10,7 +10,7 @@ const {
 const {
   generateEntity,
   generateLocation
-} = require(`../src/generator/generateEntity`);
+} = require(`../src/generator/generate-entity`);
 
 const anyIndex = 0;
 let generatedData;
