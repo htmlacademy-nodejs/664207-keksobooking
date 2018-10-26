@@ -14,18 +14,18 @@ const getRandomNumber = (min, max) => {
 
 const isNumber = (number) => typeof number === `number` && isFinite(number);
 
-const getRandomUniqArray = (source, length) => {
-  let randomUniqArray = [];
+const getRandomUniqArray = (sourceItems, length) => {
+  let resultItems = [];
 
   for (let i = 0; i < length; i++) {
-    const randomElement = source[getRandomNumber(0, source.length - 1)];
+    const randomElement = sourceItems[getRandomNumber(0, sourceItems.length - 1)];
 
-    if (!randomUniqArray.includes(randomElement)) {
-      randomUniqArray.push(randomElement);
+    if (!resultItems.includes(randomElement)) {
+      resultItems.push(randomElement);
     }
   }
 
-  return randomUniqArray;
+  return resultItems;
 };
 
 const getRandomName = () => names[getRandomNumber(0, names.length - 1)];
