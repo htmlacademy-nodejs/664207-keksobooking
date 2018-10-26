@@ -66,7 +66,7 @@ const getAvatar = asyncHelper(async (req, res) => {
 });
 
 const saveOffer = async (req, res) => {
-  const address = req.body.address.split(`,`);
+  const addressCoords = req.body.address.split(`,`);
   const responseData = {
     author: {name: req.body.name || getRandomName()},
     offer: {
@@ -81,7 +81,7 @@ const saveOffer = async (req, res) => {
       checkout: req.body.timeout,
       features: req.body.features,
     },
-    location: {x: address[0], y: address[1]}
+    location: {x: addressCoords[0], y: addressCoords[1]}
   };
   const errors = validator(responseData);
 

@@ -13,7 +13,7 @@ const {
   getRandomUniqArray
 } = require(`../common/helpers`);
 
-const titles = [
+const TITLES = [
   `Большая уютная квартира`,
   `Маленькая неуютная квартира`,
   `Огромный прекрасный дворец`,
@@ -47,7 +47,7 @@ module.exports.generateEntity = (i) => {
       avatar: `https://robohash.org/${i}`
     },
     offer: {
-      title: titles[i],
+      title: TITLES[i],
       address: `${coords.x}, ${coords.y}`,
       price: getRandomNumber(Price.MIN, Price.MAX),
       type: Types[getRandomNumber(0, Types.length - 1)],
